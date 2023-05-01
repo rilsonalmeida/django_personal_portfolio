@@ -1,0 +1,61 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block title%}Blogs{% endblock %}
+
+{% block content %}
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Blog</h1>
+
+<h3 class="text-center mb-5">Rilson has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
+
+{% for blog in blogs %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'blog:detail_blog' blog.id %}">
+      <h2>{{ blog.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ blog.post_date|date:'M d Y'|upper }}</h5>
+    <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+
+{% comment %} {% extends 'portfolio/base.html' %}
+
+{% block title%}Blogs{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Blogs from creator {{ creator }}</h2>
+
+        <br>
+        <p>{{ creator }} has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</p>
+        <br>
+        
+
+        <br>
+        <p>Latest 5 Blogs from my portfolio</p>
+        <br>
+
+        <div class="container text-center">
+            <ul style="list-style-type: none;">
+                {% for blog in blogs %} 
+                    <hr>
+                    {% comment %} <li><h2>{{ forloop.counter }}: {{ blog.title }}</h2></li> {% endcomment %}
+                    <li><h2>{{ blog.title }}</h2></li>
+                    <li><a href="{% url 'blog:detail_blog' blog.pk %}"><h4>{{ blog.description|truncatechars:100 }}</h4></a></li>
+                    {% comment %} <li><h4>Author: {{ blog.author }}</h4></li> {% endcomment %}
+                    <li><h4>--{{ blog.post_date|date:'F jS Y, H:m' }}--</h4></li>
+                {% comment %} {% empty %}
+                    <p>You have no blogs yet !</p> 
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %} {% endcomment %} 
