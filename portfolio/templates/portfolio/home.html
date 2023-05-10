@@ -28,7 +28,11 @@
   </div>
 </div>
 
-<h2 class="mt-5">Portfolio</h2>
+<h2 class="mt-5 text-primary">Portfolio</h2>
+
+
+
+
 <hr>
 <div class="row">
   {% for project in projects %}
@@ -43,8 +47,47 @@
         {% endif %}
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
+
+        {% comment %} <div class="card text-bg-primary mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-lg-6 col-md-16">
+              <img src="{{ project.image.url }}" class="img-fluid rounded-start" alt="Sample image project">
+              <div class="col-md-8 card text-bg-info">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-body">{{ project.description }}</p>
+                {% if project.url %}<small class="text-body-secondary"><a href="{{ project.url }}">Click here</a></small>{% endif %}
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+
     </div>
   {% endfor %}
 </div>
 
 {% endblock %}
+
+
+{% comment %} <div class="card text-bg-dark">
+  <img src="{{ project.image.url }}" class="card-img" alt="Sample image project">
+  <div class="card-img-overlay">
+    <h5 class="card-title">{{ project.title }}</h5>
+    <p class="card-text">{{ project.description }}</p>
+    {% if project.url %}<p class="card-text"><small><a href="{{ project.url }}"></a></small></p>{% endif %}
+  </div>
+</div>
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ project.image.url }}" class="img-fluid rounded-start" alt="Sample image project">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+        {% if project.url %}<p class="card-text"><small class="text-body-secondary"><a href="{{ project.url }}"></a></small></p>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
