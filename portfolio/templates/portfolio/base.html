@@ -23,11 +23,11 @@
 <body>
 
   <nav id="topNav" class="navbar navbar-expand-md " data-bs-theme="dark" 
-                   style="background-color: #62625b;">
+                   style="background-color: #62625b;"> 
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static "portfolio/bitmoji_Rilson.png" %}" width="30" height="30" class="d-inline-block align-top" alt="Rilson's Logo">
-        <span id="owner_portfolio">Rilson Almeida</span>
+        <a class="nav-link" href="{% static "portfolio/Rilson_Almeida_CV_2023_05.pdf" %}" target="_blank"><span id="owner_portfolio">Rilson Almeida</span></a>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color: yellow;"></span>
@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% static "portfolio/Rilson_Almeida_CV_2023_05.pdf" %}">Resume</a>
+            <a class="nav-link" href="{% static "portfolio/Rilson_Almeida_CV_2023_05.pdf" %}" target="_blank">Resume</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://www.linkedin.com/in/rilson-almeida-81651b34/" target="_blank">LinkedIn</a>
